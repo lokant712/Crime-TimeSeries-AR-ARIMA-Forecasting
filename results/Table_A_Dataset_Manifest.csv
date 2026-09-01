@@ -1,0 +1,4 @@
+Dataset ID,Dataset Name,Agency / Source,Time Span Used,Location Field,Aggregation,Raw Records Pulled,Series Periods
+D1,Chicago Crimes (2001–Present),City of Chicago Data Portal / CPD,2019-01-01 to 2024-06-30,"district (001, 011, 018)",Weekly ('W-MON'),"50,000+",287 weeks
+D2,NYPD Complaint Data Historic,NYC OpenData / NYPD,2019-01-01 to 2023-12-31,"addr_pct_cd (014, 075)",Weekly ('W-MON'),"50,000+",261 weeks
+D3,SFPD Incident Reports (2018–Present),DataSF / SFPD,2019-01-01 to 2024-06-30,"police_district (Central, Mission)",Weekly ('W-MON'),"50,000+",287 weeks

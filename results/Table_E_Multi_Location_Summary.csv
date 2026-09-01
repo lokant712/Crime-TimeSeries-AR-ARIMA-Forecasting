@@ -1,0 +1,6 @@
+Location,Periods,Mean_Weekly_Incidents,Std_Dev,Best_Model,Locked_Test_MAE,MAE,RMSE,Interpretation
+Chicago Dist 001 (Loop),287,194.5,70.3,"ARIMA(0, 1, 1)",30.64,30.64,35.92,Downtown commercial hub; strong seasonal oscillations.
+Chicago Dist 011 (Harrison),287,236.9,46.7,"ARIMA(0, 1, 1)",25.18,25.18,28.96,High baseline volume; persistent AR(2) dynamics.
+Chicago Dist 018 (Near North),287,192.6,53.9,"ARIMA(0, 1, 1)",24.35,24.35,27.82,Commercial/residential mix; stable seasonal profile.
+NYPD Precinct 014 (Midtown S),121,158.6,41.5,"ARIMA(0, 1, 1)",17.59,17.59,20.9,Dense transit and commercial corridor.
+SFPD Central District,287,352.6,84.6,"ARIMA(0, 1, 1)",46.26,46.26,53.83,Urban core property reporting profile.

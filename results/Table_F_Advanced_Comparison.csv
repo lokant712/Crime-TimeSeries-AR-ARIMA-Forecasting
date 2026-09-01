@@ -1,0 +1,4 @@
+Experiment,Baseline,Advanced Model,Metric Change,Runtime Change,Conclusion
+SARIMA vs ARIMA (Seasonality),"ARIMA(0, 1, 1) [MAE=30.64]","SARIMA(1,1,1)x(1,0,1)[52] [MAE=30.18]",-0.46 MAE,+1.08s fit latency,SARIMA effectively tracks summer surge dynamics.
+SARIMAX vs SARIMA (Exogenous),"SARIMA(1,1,1)x(1,0,1)[52] [MAE=30.18]",SARIMAX(Calendar-Exog) [MAE=25.50],-4.68 MAE,+2.97s fit latency,Calendar indicators provide modest improvement without external feature risk.
+LSTM vs ARIMA (Deep Learning),"ARIMA(0, 1, 1) [MAE=30.64, 3 params]","PyTorch LSTM [MAE=52.69, 4513 params]",+22.05 MAE,+0.17s train,"Marginal accuracy difference fails to justify 4,400+ parameters and non-deterministic optimization."

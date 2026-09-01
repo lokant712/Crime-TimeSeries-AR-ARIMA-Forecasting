@@ -1,0 +1,14 @@
+{
+    "student_name": "Lokanth S",
+    "reg_no": "23MID0037",
+    "faculty_coordinator": "Dr. Durgesh Kumar",
+    "title": "Time-Series Analysis & Forecasting of Reported Crime Incidents (AR & ARIMA)",
+    "deployment_boundary": "The models forecast counts of reported incidents, not actual underlying crime prevalence and not individual criminal behavior. Forecasts must not be used for person-level profiling or autonomous policing decisions.",
+    "results_summary": {
+        "selected_arima_order": "(0, 1, 1)",
+        "test_mae_arima": 30.64,
+        "test_mae_sarima": 30.18,
+        "test_mae_ar8": 33.93,
+        "test_mae_naive": 31.23
+    }
+}

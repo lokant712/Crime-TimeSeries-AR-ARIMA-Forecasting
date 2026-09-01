@@ -1,0 +1,67 @@
+# Global Configuration for MDI3003 Lab 06
+# Time-Series Analysis & Forecasting of Reported Crime Incidents (AR & ARIMA)
+# Student: Lokanth S | Reg No: 23MID0037 | Faculty Coordinator: Dr. Durgesh Kumar
+
+seed: 42
+test_horizon_weeks: 26
+frequency: "W-MON"
+observation_window:
+  start_date: "2019-01-01"
+  end_date: "2024-06-30"
+
+datasets:
+  D1_CHICAGO:
+    name: "Chicago Crimes (2001-Present)"
+    source_url: "https://data.cityofchicago.org/resource/ijzp-q8t2.json"
+    districts: ["001", "011", "018"]
+    processed_dir: "data/D1_chicago"
+    target_column: "district"
+    date_column: "date"
+    categories: ["THEFT", "BATTERY"]
+
+  D2_NYPD:
+    name: "NYPD Complaint Data Historic"
+    source_url: "https://data.cityofnewyork.us/resource/qgea-i56i.json"
+    precincts: ["014", "075"]
+    processed_dir: "data/D2_nypd"
+    target_column: "addr_pct_cd"
+    date_column: "cmplnt_fr_dt"
+
+  D3_SFPD:
+    name: "SFPD Incident Reports (2018-Present)"
+    source_url: "https://data.sfgov.org/resource/wg3w-h783.json"
+    districts: ["Central", "Mission"]
+    processed_dir: "data/D3_sfpd"
+    target_column: "police_district"
+    date_column: "incident_datetime"
+
+models:
+  ar:
+    default_lags: 8
+  arima:
+    candidate_orders:
+      - [1, 0, 0]
+      - [2, 0, 0]
+      - [1, 1, 1]
+      - [2, 1, 1]
+      - [0, 1, 1]
+      - [1, 1, 0]
+      - [2, 1, 2]
+      - [3, 1, 1]
+  sarima:
+    order: [1, 1, 1]
+    seasonal_order: [1, 0, 1, 52]
+  rolling_origin:
+    n_folds: 5
+    horizon_steps: 8
+  deep_learning:
+    seq_len: 12
+    epochs: 80
+    hidden_size: 32
+    seeds: [42, 101, 2024]
+
+paths:
+  results_dir: "results"
+  figures_dir: "figures"
+  models_dir: "models"
+  reports_dir: "reports"

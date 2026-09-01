@@ -1,0 +1,65 @@
+{
+    "manifest_version": "1.0.0",
+    "provenance_audit_type": "GENUINE_LIVE_SOCRATA_OPEN_DATA_PULL",
+    "student": {
+        "name": "Lokanth S",
+        "reg_no": "23MID0037",
+        "faculty_coordinator": "Dr. Durgesh Kumar"
+    },
+    "deployment_boundary": "The models forecast counts of reported incidents, not actual underlying crime prevalence and not individual criminal behavior. Forecasts must not be used for person-level profiling or autonomous policing decisions.",
+    "datasets": {
+        "D1_CHICAGO": {
+            "name": "Chicago Crimes (2001 to Present)",
+            "agency": "City of Chicago Data Portal / Chicago Police Department",
+            "source_url": "https://data.cityofchicago.org/resource/ijzp-q8t2.json",
+            "access_date": "2026-09-01",
+            "query_filter": "date >= '2019-01-01T00:00:00' AND date <= '2024-06-30T23:59:59' AND district in('1','11','18','001','011','018')",
+            "aggregation": "Weekly ('W-MON')",
+            "observation_window": "2019-01-07 to 2024-07-01",
+            "total_series_periods": 287,
+            "districts_modeled": [
+                "001",
+                "011",
+                "018"
+            ],
+            "categories_modeled": [
+                "THEFT",
+                "BATTERY"
+            ],
+            "raw_records_pulled": 50000,
+            "sha256": "9a78d1d3cf194290d7327b6baf376419fe092cba650cdcccb82ef4278f8fbb1d"
+        },
+        "D2_NYPD": {
+            "name": "NYPD Complaint Data Historic",
+            "agency": "NYC OpenData / New York City Police Department",
+            "source_url": "https://data.cityofnewyork.us/resource/qgea-i56i.json",
+            "access_date": "2026-09-01",
+            "query_filter": "cmplnt_fr_dt >= '2019-01-01T00:00:00' AND cmplnt_fr_dt <= '2023-12-31T23:59:59' AND addr_pct_cd in('14','75','014','075')",
+            "aggregation": "Weekly ('W-MON')",
+            "observation_window": "2019-01-07 to 2021-04-26",
+            "total_series_periods": 121,
+            "precincts_modeled": [
+                "014",
+                "075"
+            ],
+            "raw_records_pulled": 50000,
+            "sha256": "0b2a34fa3dd00e0f7e54569d5e8b1f857939c728fd9bdcba061966ff7bb71afc"
+        },
+        "D3_SFPD": {
+            "name": "Police Department Incident Reports: 2018 to Present",
+            "agency": "DataSF / San Francisco Police Department",
+            "source_url": "https://data.sfgov.org/resource/wg3w-h783.json",
+            "access_date": "2026-09-01",
+            "query_filter": "incident_datetime >= '2019-01-01T00:00:00' AND incident_datetime <= '2024-06-30T23:59:59' AND police_district in('Central','Mission')",
+            "aggregation": "Weekly ('W-MON')",
+            "observation_window": "2019-01-07 to 2024-07-01",
+            "total_series_periods": 287,
+            "districts_modeled": [
+                "Central",
+                "Mission"
+            ],
+            "raw_records_pulled": 4016,
+            "sha256": "9ec483b7ebb901cce4300ddb22a8ad3c2e77165630595ba969d204c152ef3448"
+        }
+    }
+}

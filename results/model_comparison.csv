@@ -1,0 +1,9 @@
+Model,Order / Lags,Train AIC / BIC,Test MAE,Test RMSE,Ljung-Box p (lag 10),Coverage 80% / 95%,Notes
+Naive (Last-Value),k=1,N/A,31.23,36.86,N/A,N/A,Persistence baseline
+Seasonal Naive,s=52,N/A,26.62,33.69,N/A,N/A,Annual cycle persistence
+AutoReg AR(p),p=8,2762.7 / 2798.0,33.93,40.19,0.5159,65.4% / 100.0%,Order justified from PACF cutoff
+"ARIMA(p,d,q)","(0, 1, 1)",2826.2 / 2833.3,30.64,35.92,0.9289,100.0% / 100.0%,Selected via training AIC grid search
+"SARIMA(p,d,q)(P,D,Q)s","(1,1,1)x(1,0,1)[52]",2221.9 / 2238.6,30.18,35.19,0.0188,50.0% / 92.3%,Captures 52-week annual seasonality
+SARIMAX (Calendar-Exog),"(1,1,1)x(1,0,1)[52] + Exog",2218.6 / 2245.2,25.5,31.02,0.4820,84.6% / 96.2%,Exploratory month + holiday indicators
+PyTorch LSTM Benchmark,"seq_len=12, hidden=32",N/A (Loss=0.18),52.69,59.31,N/A,N/A,Mean over 3 repeated seeded runs
+PyTorch GRU Benchmark,"seq_len=12, hidden=32",N/A (Loss=0.17),83.25,89.65,N/A,N/A,Mean over 3 repeated seeded runs
