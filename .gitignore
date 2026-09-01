@@ -11,6 +11,7 @@ env/
 venv/
 ENV/
 
-# Temporary OS files
+# Temporary OS & Office files
 .DS_Store
 Thumbs.db
+~$*
