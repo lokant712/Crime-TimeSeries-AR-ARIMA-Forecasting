@@ -15,3 +15,13 @@ ENV/
 .DS_Store
 Thumbs.db
 ~$*
+
+# Local Reports & Build Tools
+reports/
+*.docx
+*.pdf
+src/report_generator.py
+build_notebooks.py
+run_all.bat
+run_all.ps1
+test_*.py

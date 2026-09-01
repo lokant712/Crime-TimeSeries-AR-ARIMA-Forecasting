@@ -103,57 +103,49 @@ This repository delivers an end-to-end, leakage-safe, fully reproducible time-se
 
 ---
 
-## 7. Corrected Flat Repository Architecture
+## 7. Repository Architecture
 
 ```
 Crime-TimeSeries-AR-ARIMA-Forecasting/
-├── config.yaml                     # Global CONFIG (dataset paths, frequencies, seeds, test_periods)
+├── config.yaml                     # Global configuration (paths, frequencies, random seeds, test periods)
 ├── data/
 │   ├── D1_chicago/                 # Processed weekly series for Chicago districts (001, 011, 018) & categories
 │   ├── D2_nypd/                    # Processed weekly series for NYPD precincts (014, 075)
 │   ├── D3_sfpd/                    # Processed weekly series for SFPD districts (Central, Mission)
-│   ├── raw/                        # Committed raw JSON Socrata payloads for complete auditability
-│   └── DATASET_MANIFEST.json       # Source URLs, access dates, query filters, SHA-256 hashes per extract
+│   ├── raw/                        # Committed raw JSON Socrata API payloads for full auditability
+│   └── DATASET_MANIFEST.json       # Source URLs, query filters, and SHA-256 hashes per dataset
 ├── src/
-│   ├── data_ingest.py              # Socrata API query client and reproducible extract generator
+│   ├── data_ingest.py              # Socrata Open Data API client with error handling
 │   ├── series_construction.py      # Resampling ('W-MON'), missingness audit, regular series builder
 │   ├── diagnostics.py              # ADF, KPSS, ACF/PACF, Ljung-Box test, seasonal decomposition
 │   ├── models_core.py              # Naive, AutoReg AR(p), ARIMA candidate grid search
 │   ├── models_advanced.py          # SARIMA, SARIMAX, Rolling-Origin Backtester, PyTorch LSTM/GRU
-│   ├── error_analysis.py           # Qualitative review of worst-forecast periods and regime shifts
-│   ├── eda.py                      # Exploratory summary statistics and profiling
+│   ├── error_analysis.py           # Analysis of worst-forecast periods and regime shifts
+│   ├── eda.py                      # Exploratory summary statistics and time series profiling
 │   ├── evaluate.py                 # MAE/RMSE scoring, prediction interval coverage, Tables A-H
-│   ├── plotting.py                 # 13 high-resolution figures with non-causal captions
-│   └── report_generator.py         # Programmatic python-docx assembler creating 28-page report
+│   └── plotting.py                 # 13 high-resolution diagnostic & forecast figures
 ├── notebooks/
-│   ├── 23MID0037_Lab06_Crime_AR_ARIMA.ipynb  # Primary consolidated submission notebook
+│   ├── 23MID0037_Lab06_Crime_AR_ARIMA.ipynb  # Primary consolidated analysis notebook
 │   ├── D1_chicago_core.ipynb
 │   ├── D1_multi_location.ipynb
 │   ├── D2_nypd_replication.ipynb
 │   ├── D3_sfpd_replication.ipynb
 │   └── advanced_sarima_rolling_lstm.ipynb
-├── results/                        # FLAT — All CSV tables from Section 5 (Tables A–H) directly here
-├── figures/                        # FLAT — All 13 PNG figures, 300 DPI
-├── models/                         # Serialized fitted ARIMA/SARIMA/AR objects (.joblib)
-├── reports/
-│   ├── 23MID0037_Lab06_Report.pdf  # Rendered 29-page official PDF document
-│   └── 23MID0037_Lab06_Report.docx # Formatted official Word document
+├── results/                        # All benchmark CSV tables (Tables A–H)
+├── figures/                        # All 13 PNG figures (300 DPI)
+├── models/                         # Serialized fitted model checkpoints (.joblib)
 ├── gui/
 │   └── app.py                      # Interactive Streamlit dashboard
 ├── scripts/
-│   ├── run_all.py                  # Master pipeline orchestrator
-│   └── validate_submission.py      # Automated compliance verifier (46/46 checks)
-├── retrain.py                      # Root CLI retraining script
-├── evaluate.py                     # Root CLI evaluation script
-├── inference.py                    # Root CLI forward inference script
-├── 23MID0037_Lab06_Crime_AR_ARIMA.ipynb  # Top-level required submission notebook
-├── 23MID0037_Lab06_Report.pdf            # Top-level required submission report
-├── 23MID0037_Lab06_Report.docx           # Top-level required Word report
+│   ├── run_all.py                  # Master pipeline execution script
+│   └── validate_submission.py      # Standalone compliance verifier
+├── retrain.py                      # CLI model retraining script
+├── evaluate.py                     # CLI evaluation script
+├── inference.py                    # CLI forward inference script
+├── 23MID0037_Lab06_Crime_AR_ARIMA.ipynb  # Top-level primary submission notebook
 ├── 23MID0037_Lab06_Model_Comparison.csv  # Top-level required benchmark table
 ├── 23MID0037_Lab06_Test_Predictions.csv  # Top-level required locked test forecasts
 ├── 23MID0037_Lab06_Manifest.json         # Top-level required reproducibility manifest
-├── run_all.bat                     # Windows batch runner
-├── run_all.ps1                     # PowerShell runner
 ├── requirements.txt
 ├── .gitignore
 └── README.md
