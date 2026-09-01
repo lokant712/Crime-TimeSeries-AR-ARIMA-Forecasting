@@ -190,7 +190,7 @@ python scripts/validate_submission.py
 Output:
 ```
 ======================================================================
-FINAL SUBMISSION VALIDATION SUMMARY: 45/45 CHECKS PASSED
+FINAL SUBMISSION VALIDATION SUMMARY: 47/47 CHECKS PASSED
 ======================================================================
 ALL VERIFICATION CRITERIA SATISFIED. READY FOR SUBMISSION.
 ```
